@@ -5,6 +5,8 @@ every pixel in Canvas 2D: no libraries, fonts, images or network calls in the de
 (the exception: attributed instrument recordings embedded in the sampled films below).
 External references may be viewed for research, never embedded.
 
+Swarm handoff: for a bounded readiness task, follow [SWARM_READY.md](SWARM_READY.md).
+
 Skills: `riso-film` for animation, `riso-still` for images, `riso-score` for sound. Before
 drawing, read `.claude/rules/riso-plates.md` and `docs/visual-development.md`. Technical checks
 do not certify artistic quality; say what was and was not looked at or heard.

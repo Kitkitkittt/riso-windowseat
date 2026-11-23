@@ -11,17 +11,18 @@ Give the working agent this prompt:
 
 ```text
 swarm ready: <one measurable repository objective>
-Read SWARM_READY.md and the applicable AGENTS.md. Continue the current owned
-work or ready issue, establish the baseline and acceptance check, then prepare
-a bounded worker handoff. Use existing authorized tools and capacity. Report
-what is documented, implemented, tested, and observed separately.
+Read CLAUDE.md and SWARM_READY.md. Continue the current owned work or approved
+objective, establish the baseline and acceptance check, then prepare a bounded
+worker handoff. Use existing authorized tools and capacity. Report what is
+documented, implemented, tested, and observed separately.
 ```
 
 If a `swarm-ready` skill is installed, load it. Otherwise execute the documented workflow directly. Treat the phrase as an agent instruction unless the installed CLI explicitly advertises it. Inspect help/version before using optional command adapters.
 
 ## Repository starting point
 
-Read: [README.md](README.md), [docs](docs).
+Start with [CLAUDE.md](CLAUDE.md) for the agent instructions, skills and scoped rules. Use
+[README.md](README.md) to locate the relevant work.
 
 Continue an existing approved issue or a clearly scoped user objective after inspecting the source map below. If none is selected, return the smallest useful improvement and its verifier as the handoff; do not begin a portfolio-wide rewrite.
 
@@ -41,7 +42,21 @@ The base above is an inspection snapshot, not a permanent working branch. Refres
 
 ## Verification starting point
 
-No executable acceptance command was established by this bounded source inspection. Read `README.md` and record the narrowest existing check before implementation. Do not invent a `test` command or infer that the repository has no tests from this gap. For a documentation-only task, check links, factual source anchors and whitespace; do not build unrelated application code.
+**Markdown only.** From the repository root, confirm the handoff and its local guide
+targets are tracked, then check the uncommitted Markdown diff:
+
+```sh
+git ls-files --error-unmatch -- CLAUDE.md README.md SWARM_READY.md tools/README.md
+git diff --check HEAD -- '*.md'
+```
+
+Expect four paths from the first command and no output from the second, both with exit 0.
+For a committed candidate, replace `HEAD` in the diff command with the PR base SHA.
+
+**Film and print runtime (separate).** [tools/README.md](tools/README.md) documents
+the browser-based determinism check (`verify.mjs`) and the tool self-tests. The Claude
+Code post-edit invariant hook handles film HTML, not Markdown. None of these checks
+is needed for this docs gate or substitutes for visual and audio review.
 
 ## Required handoff result
 
